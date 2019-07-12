@@ -5,6 +5,7 @@ metadata:
   labels:
     service: ambassador-admin
   name: ambassador-admin
+  namespace: kubesphere-system
 spec:
   type: NodePort
   ports:
@@ -48,7 +49,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: ambassador
-  namespace: default
+  namespace: kubesphere-system
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
@@ -238,6 +239,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: ambassador
+  namespace: kubesphere-system
 spec:
   replicas: 3
   template:
